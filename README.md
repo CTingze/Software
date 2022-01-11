@@ -118,3 +118,11 @@ def yolo_detect(frame):
             cv2.putText(img, label, (x, y -5), font, 3, color, 3)
     return img
 ```
+
+# 測試函數功能
+```
+img = cv2.imread("/Users/davidchiu/Desktop/test.jpg")
+im = yolo_detect(img)
+img_rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+```
+plt.imshow(img_rgb)
