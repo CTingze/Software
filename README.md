@@ -1,27 +1,28 @@
-<h1> 人臉有無口罩偵測系統-系統介紹</h1>
+<h1> 人臉有無口罩偵測系統</h1>
+## 系統介紹
 
-
-# 環境建置
+## 環境建置
 <br>
 使用OpenCV 讀取YOLOv3模型
-``` python
+``` 
 import cv2
 import numpy as np
 net = cv2.dnn.readNetFromDarknet("yolov3.cfg","yolov3_1100.weights")
 ```
+
 <br>
-# 讀取相關參數
+## 讀取相關參數
 ```
 classes = [line.strip() for line in open("cfg_mask/obj.names")]
 colors = [(0,0,255),(255,0,0),(0,255,0)]
 ```
 
-# 讀取圖片
+## 讀取圖片
 ```
 img = cv2.imread("/Users/davidchiu/Desktop/test.jpg")
 img.shape
 ```
-# 利用YOLOv3 模型辨識圖片
+## 利用YOLOv3 模型辨識圖片
 
 * 320 x 320 (high speed, less accuracy)
 * 416 x 416 (moderate speed, moderate accuracy)
@@ -34,7 +35,7 @@ blob = cv2.dnn.blobFromImage(img, 1/255.0, (416, 416), (0, 0, 0), True, crop=Fal
 net.setInput(blob)
 outs = net.forward(output_layers)
 ```
-# 擷取偵測物件位置
+## 擷取偵測物件位置
 ```
 class_ids = []
 confidences = []
@@ -61,7 +62,7 @@ for out in outs:
 ```
 
 
-# 框住偵測物件區域
+## 框住偵測物件區域
 ```
 font = cv2.FONT_HERSHEY_PLAIN
 
@@ -74,7 +75,7 @@ for i in range(len(boxes)):
         cv2.putText(img, label, (x, y - 5), font, 2, color, 3)
 
 ```
-# 將辨識過程包裝成函數
+## 將辨識過程包裝成函數
 ```
 def yolo_detect(frame):
     # forward propogation
@@ -120,7 +121,7 @@ def yolo_detect(frame):
     return img
 ```
 
-# 測試函數功能
+## 測試函數功能
 ```
 img = cv2.imread("/Users/davidchiu/Desktop/test.jpg")
 im = yolo_detect(img)
@@ -128,7 +129,7 @@ img_rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
 plt.imshow(img_rgb)
 ```
 
-# 使用攝像頭即時偵測物件
+## 使用攝像頭即時偵測物件
 ```
 import cv2
 import imutils
