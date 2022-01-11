@@ -157,7 +157,7 @@ cv2.destroyAllWindows()
 ```
 
 ## 參考文獻
-<pre>
+<br>
 主題:雜亂大全24-YOLOv3(v1-v4統整資料)簡介(上) 作者:liao86221@gmail.com
 https://liaozihzrong.github.io/2020/09/18/allinone24/ 
 主題:學校由我們「罩」—口罩辨識系統建置 作者:張菖芠、高振皓、蔡尚宏
@@ -190,4 +190,4 @@ https://blog.csdn.net/weixin_43483381/article/details/107944903
 https://iq.opengenus.org/architecture-of-yolov3/
 主題:FPN（feature pyramid networks）算法讲解 作者:AI之路
 https://blog.csdn.net/u014380165/article/details/72890275
-</pre>
+
