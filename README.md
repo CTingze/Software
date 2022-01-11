@@ -14,18 +14,18 @@ net = cv2.dnn.readNetFromDarknet("yolov3.cfg","yolov3_1100.weights")
 classes = [line.strip() for line in open("cfg_mask/obj.names")]
 colors = [(0,0,255),(255,0,0),(0,255,0)]
 ```
+
 讀取圖片
 ```
 img = cv2.imread("/Users/davidchiu/Desktop/test.jpg")
 img.shape
 ```
-
-```
 利用YOLOv3 模型辨識圖片
-320 x 320 (high speed, less accuracy)
-416 x 416 (moderate speed, moderate accuracy)
-608 x 608 (less speed, high accuracy)
-```
+
+* 320 x 320 (high speed, less accuracy)
+* 416 x 416 (moderate speed, moderate accuracy)
+* 608 x 608 (less speed, high accuracy)
+
 ```
 img = cv2.resize(img, None, fx=0.4, fy=0.4)
 height, width, channels = img.shape 
