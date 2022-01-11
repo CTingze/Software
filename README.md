@@ -124,5 +124,26 @@ def yolo_detect(frame):
 img = cv2.imread("/Users/davidchiu/Desktop/test.jpg")
 im = yolo_detect(img)
 img_rgb = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
-```
 plt.imshow(img_rgb)
+```
+
+# 使用攝像頭即時偵測物件
+```
+import cv2
+import imutils
+import time
+
+VIDEO_IN = cv2.VideoCapture(0)
+
+while True:
+    hasFrame, frame = VIDEO_IN.read()
+    
+    img = yolo_detect(frame)
+    cv2.imshow("Frame", imutils.resize(img, width=850))
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+        
+VIDEO_IN.release()
+cv2.destroyAllWindows()
+```
