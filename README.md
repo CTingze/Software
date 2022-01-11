@@ -3,8 +3,8 @@
 ## 系統介紹
 
 ## 環境建置
-<br>
-使用OpenCV 讀取YOLOv3模型
+
+## 使用OpenCV 讀取YOLOv3模型
 
 ```
 import cv2
