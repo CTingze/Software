@@ -12,8 +12,8 @@ import numpy as np
 net = cv2.dnn.readNetFromDarknet("yolov3.cfg","yolov3_1100.weights")
 ```
 
-<br>
-## 讀取相關參數
+# 讀取相關參數
+
 ```
 classes = [line.strip() for line in open("cfg_mask/obj.names")]
 colors = [(0,0,255),(255,0,0),(0,255,0)]
